@@ -27,6 +27,15 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter);
 
+
+app.use(function (req, res, next) {
+  res.header('Content-Type', 'application/json');
+  next();
+});
+//   console.log('aeee ' +  JSON.stringify(req.body))
+//   next()
+// })
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
